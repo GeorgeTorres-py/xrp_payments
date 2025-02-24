@@ -1,0 +1,2 @@
+XRPL_WALLET_SEED=your_wallet_seed_here
+XRPL_NETWORK=testnet  # or mainnet
