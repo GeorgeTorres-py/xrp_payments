@@ -1,0 +1,34 @@
+**MIT
+
+7. test_payment_processor.py:
+
+```python
+import pytest
+from src.payment_processor import PaymentDistributor
+from xrpl.wallet import Wallet
+
+def test_payment_distributor_initialization():
+    seed = "sEdVWZmeUDgQdMEFKTgC9r4gRgTG"  # Test seed
+    distributor = PaymentDistributor(seed=seed, network='testnet')
+    assert isinstance(distributor.wallet, Wallet)
+    assert distributor.network == 'testnet'
+
+def test_prepare_payment():
+    seed = "sEdVWZmeUDgQdMEFKTgC9r4gRgTG"  # Test seed
+    distributor = PaymentDistributor(seed=seed, network='testnet')
+    
+    destination = "rPT1Sjq2YGrBMTttX4GZHjKu9dyfzbpAYe"
+    amount = 100
+    
+    payment = distributor.prepare_payment(destination, amount)
+    assert payment.destination == destination
+    assert payment.amount == str(amount * 1000000)  # Converts to drops
+
+@pytest.mark.integration
+def test_get_balance():
+    seed = "sEdVWZmeUDgQdMEFKTgC9r4gRgTG"  # Test seed
+    distributor = PaymentDistributor(seed=seed, network='testnet')
+    
+    balance = distributor.get_balance()
+    assert isinstance(balance, (int, float))
+    assert balance >= 0
