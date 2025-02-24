@@ -1,0 +1,12 @@
+xrpl-payment-distributor/
+├── requirements.txt
+├── README.md
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── config.py
+│   ├── payment_processor.py
+│   └── utils.py
+└── tests/
+    ├── __init__.py
+    └── test_payment_processor.py
