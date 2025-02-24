@@ -1,0 +1,12 @@
+{
+  "payments": [
+    {
+      "destination": "rDestinationAddress1",
+      "amount": 100
+    },
+    {
+      "destination": "rDestinationAddress2",
+      "amount": 200
+    }
+  ]
+}
