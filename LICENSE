@@ -1,7 +1,5 @@
 **MIT
 
-7. test_payment_processor.py:
-
 ```python
 import pytest
 from src.payment_processor import PaymentDistributor
